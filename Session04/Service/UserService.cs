@@ -48,6 +48,27 @@ public class UserService
 
     }
 
+    public User GetById(int id)
+    {
+        using var conn = new SqlConnection(connectionString);
+        var cmd = conn.CreateCommand();
+        cmd.CommandText = "SELECT * FROM [dbo].[User] WHERE ID = @ID";
+        cmd.Parameters.AddWithValue("ID", id);
+
+        conn.Open();
+        var reader = cmd.ExecuteReader();
+        reader.Read();
+
+        return new User
+        {
+            FirstName = Convert.ToString(reader["FirstName"]),
+            Family = Convert.ToString(reader["Family"]),
+            Email = Convert.ToString(reader["Email"]),
+            IsActive = Convert.ToBoolean(reader["IsActive"]),
+            ID = Convert.ToInt32(reader["ID"]),
+        };
+    }
+
     public List<User> Read()
     {
         var result = new List<User>();
@@ -81,6 +102,23 @@ public class UserService
         var cmd = conn.CreateCommand();
         cmd.CommandText = "DELETE FROM [dbo].[User] WHERE id = @ID";
         cmd.Parameters.AddWithValue("ID", id);
+
+        conn.Open();
+        cmd.ExecuteNonQuery();
+    }
+
+    public void Update(User user)
+    {
+        using var conn = new SqlConnection(connectionString);
+        var cmd = conn.CreateCommand();
+        cmd.CommandText = 
+            "UPDATE [dbo].[User] SET FirstName=@FirstName, Family=@Family, Email=@Email  WHERE id = @ID";
+        cmd.Parameters.AddWithValue ("ID", user.ID);
+        cmd.Parameters.AddWithValue ("FirstName", user.FirstName);
+        cmd.Parameters.AddWithValue ("Family", user.Family);
+        cmd.Parameters.AddWithValue ("Email", user.Email);
+
+        //RBAC + Permission
 
         conn.Open();
         cmd.ExecuteNonQuery();

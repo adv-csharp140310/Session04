@@ -21,7 +21,16 @@ public partial class FormUser : Form
     private void buttonSave_Click(object sender, EventArgs e)
     {
         var user = (User)groupBoxUser.GetFormData(typeof(User));
-        userService.Create(user);
+        if(user.ID > 0)
+        {
+            userService.Update(user);
+        }
+        else
+        {
+            userService.Create(user);
+        }
+        reload();
+        groupBoxUser.SetFormData(new User { });
         MessageBox.Show("Success 🎉🎉");
     }
 
@@ -46,6 +55,11 @@ public partial class FormUser : Form
                 reload();
                 MessageBox.Show("Done");
             }
+        }
+
+        if (dataGridViewUsers.CurrentCell.OwningColumn.Name == "ColumnEdit")
+        {
+            groupBoxUser.SetFormData(userService.GetById(id));
         }
     }
 }

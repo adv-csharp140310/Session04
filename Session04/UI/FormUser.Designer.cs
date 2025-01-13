@@ -35,6 +35,7 @@ partial class FormUser
         ColumnID = new DataGridViewTextBoxColumn();
         ColumnFirstName = new DataGridViewTextBoxColumn();
         ColumnDelete = new DataGridViewButtonColumn();
+        ColumnEdit = new DataGridViewButtonColumn();
         groupBoxUser.SuspendLayout();
         ((System.ComponentModel.ISupportInitialize)dataGridViewUsers).BeginInit();
         SuspendLayout();
@@ -65,7 +66,7 @@ partial class FormUser
         dataGridViewUsers.AllowUserToAddRows = false;
         dataGridViewUsers.AllowUserToDeleteRows = false;
         dataGridViewUsers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-        dataGridViewUsers.Columns.AddRange(new DataGridViewColumn[] { ColumnID, ColumnFirstName, ColumnDelete });
+        dataGridViewUsers.Columns.AddRange(new DataGridViewColumn[] { ColumnID, ColumnFirstName, ColumnDelete, ColumnEdit });
         dataGridViewUsers.Location = new Point(12, 248);
         dataGridViewUsers.Name = "dataGridViewUsers";
         dataGridViewUsers.ReadOnly = true;
@@ -105,6 +106,14 @@ partial class FormUser
         ColumnDelete.Text = "❌";
         ColumnDelete.UseColumnTextForButtonValue = true;
         // 
+        // ColumnEdit
+        // 
+        ColumnEdit.HeaderText = "ویرایش";
+        ColumnEdit.Name = "ColumnEdit";
+        ColumnEdit.ReadOnly = true;
+        ColumnEdit.Text = "ویرایش";
+        ColumnEdit.UseColumnTextForButtonValue = true;
+        // 
         // FormUser
         // 
         AutoScaleDimensions = new SizeF(7F, 15F);
@@ -130,4 +139,5 @@ partial class FormUser
     private DataGridViewTextBoxColumn ColumnID;
     private DataGridViewTextBoxColumn ColumnFirstName;
     private DataGridViewButtonColumn ColumnDelete;
+    private DataGridViewButtonColumn ColumnEdit;
 }
