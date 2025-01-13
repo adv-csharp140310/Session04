@@ -32,6 +32,8 @@ partial class FormUser
         buttonSave = new Button();
         dataGridViewUsers = new DataGridView();
         buttonRefresh = new Button();
+        ColumnID = new DataGridViewTextBoxColumn();
+        ColumnFirstName = new DataGridViewTextBoxColumn();
         groupBoxUser.SuspendLayout();
         ((System.ComponentModel.ISupportInitialize)dataGridViewUsers).BeginInit();
         SuspendLayout();
@@ -59,9 +61,13 @@ partial class FormUser
         // 
         // dataGridViewUsers
         // 
+        dataGridViewUsers.AllowUserToAddRows = false;
+        dataGridViewUsers.AllowUserToDeleteRows = false;
         dataGridViewUsers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+        dataGridViewUsers.Columns.AddRange(new DataGridViewColumn[] { ColumnID, ColumnFirstName });
         dataGridViewUsers.Location = new Point(12, 248);
         dataGridViewUsers.Name = "dataGridViewUsers";
+        dataGridViewUsers.ReadOnly = true;
         dataGridViewUsers.Size = new Size(765, 328);
         dataGridViewUsers.TabIndex = 1;
         // 
@@ -74,6 +80,20 @@ partial class FormUser
         buttonRefresh.Text = "Refresh";
         buttonRefresh.UseVisualStyleBackColor = true;
         buttonRefresh.Click += buttonRefresh_Click;
+        // 
+        // ColumnID
+        // 
+        ColumnID.DataPropertyName = "ID";
+        ColumnID.HeaderText = "شناسه";
+        ColumnID.Name = "ColumnID";
+        ColumnID.ReadOnly = true;
+        // 
+        // ColumnFirstName
+        // 
+        ColumnFirstName.DataPropertyName = "FirstName";
+        ColumnFirstName.HeaderText = "نام";
+        ColumnFirstName.Name = "ColumnFirstName";
+        ColumnFirstName.ReadOnly = true;
         // 
         // FormUser
         // 
@@ -97,4 +117,6 @@ partial class FormUser
     private Button buttonSave;
     private DataGridView dataGridViewUsers;
     private Button buttonRefresh;
+    private DataGridViewTextBoxColumn ColumnID;
+    private DataGridViewTextBoxColumn ColumnFirstName;
 }

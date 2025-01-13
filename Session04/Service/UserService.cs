@@ -60,6 +60,8 @@ public class UserService
         var reader = cmd.ExecuteReader();
         while (reader.Read())
         {
+            //populate model
+            //materilazzation
             result.Add(new User
             {
                 FirstName = Convert.ToString(reader["FirstName"]),
