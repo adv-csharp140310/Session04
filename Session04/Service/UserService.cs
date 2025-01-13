@@ -75,4 +75,14 @@ public class UserService
         return result;
     }
 
+    public void Delete(int id)
+    {
+        using var conn = new SqlConnection(connectionString);
+        var cmd = conn.CreateCommand();
+        cmd.CommandText = "DELETE FROM [dbo].[User] WHERE id = @ID";
+        cmd.Parameters.AddWithValue("ID", id);
+
+        conn.Open();
+        cmd.ExecuteNonQuery();
+    }
 }

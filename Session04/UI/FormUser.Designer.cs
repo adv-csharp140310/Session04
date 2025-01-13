@@ -34,6 +34,7 @@ partial class FormUser
         buttonRefresh = new Button();
         ColumnID = new DataGridViewTextBoxColumn();
         ColumnFirstName = new DataGridViewTextBoxColumn();
+        ColumnDelete = new DataGridViewButtonColumn();
         groupBoxUser.SuspendLayout();
         ((System.ComponentModel.ISupportInitialize)dataGridViewUsers).BeginInit();
         SuspendLayout();
@@ -64,12 +65,13 @@ partial class FormUser
         dataGridViewUsers.AllowUserToAddRows = false;
         dataGridViewUsers.AllowUserToDeleteRows = false;
         dataGridViewUsers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-        dataGridViewUsers.Columns.AddRange(new DataGridViewColumn[] { ColumnID, ColumnFirstName });
+        dataGridViewUsers.Columns.AddRange(new DataGridViewColumn[] { ColumnID, ColumnFirstName, ColumnDelete });
         dataGridViewUsers.Location = new Point(12, 248);
         dataGridViewUsers.Name = "dataGridViewUsers";
         dataGridViewUsers.ReadOnly = true;
         dataGridViewUsers.Size = new Size(765, 328);
         dataGridViewUsers.TabIndex = 1;
+        dataGridViewUsers.CellContentClick += dataGridViewUsers_CellContentClick;
         // 
         // buttonRefresh
         // 
@@ -95,6 +97,14 @@ partial class FormUser
         ColumnFirstName.Name = "ColumnFirstName";
         ColumnFirstName.ReadOnly = true;
         // 
+        // ColumnDelete
+        // 
+        ColumnDelete.HeaderText = "Delete";
+        ColumnDelete.Name = "ColumnDelete";
+        ColumnDelete.ReadOnly = true;
+        ColumnDelete.Text = "❌";
+        ColumnDelete.UseColumnTextForButtonValue = true;
+        // 
         // FormUser
         // 
         AutoScaleDimensions = new SizeF(7F, 15F);
@@ -119,4 +129,5 @@ partial class FormUser
     private Button buttonRefresh;
     private DataGridViewTextBoxColumn ColumnID;
     private DataGridViewTextBoxColumn ColumnFirstName;
+    private DataGridViewButtonColumn ColumnDelete;
 }
