@@ -36,7 +36,7 @@ public class UserService
 
         cmd.CommandText = "INSERT into [dbo].[User] ([FirstName], [Family], [Email], [IsActive]) values" +
             "(@FirstName, @Family, @Email, @IsActive)";
-        cmd.Parameters.AddWithValue("FirstName", user.Name);
+        cmd.Parameters.AddWithValue("FirstName", user.FirstName);
         cmd.Parameters.AddWithValue("Family", user.Family);
         cmd.Parameters.AddWithValue("Email", user.Email);
         cmd.Parameters.AddWithValue("IsActive", user.IsActive);
@@ -46,6 +46,31 @@ public class UserService
         cmd.ExecuteNonQuery();
         conn.Close();
 
+    }
+
+    public List<User> Read()
+    {
+        var result = new List<User>();
+
+        using var conn = new SqlConnection(connectionString);
+        var cmd = conn.CreateCommand();
+        cmd.CommandText = "SELECT * FROM [dbo].[User]";
+
+        conn.Open();
+        var reader = cmd.ExecuteReader();
+        while (reader.Read())
+        {
+            result.Add(new User
+            {
+                FirstName = Convert.ToString(reader["FirstName"]),
+                Family = Convert.ToString(reader["Family"]),
+                Email = Convert.ToString(reader["Email"]),
+                IsActive = Convert.ToBoolean(reader["IsActive"]),
+                ID = Convert.ToInt32(reader["ID"]),
+            });
+        }
+
+        return result;
     }
 
 }

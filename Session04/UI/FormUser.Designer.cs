@@ -73,6 +73,7 @@ partial class FormUser
         buttonRefresh.TabIndex = 2;
         buttonRefresh.Text = "Refresh";
         buttonRefresh.UseVisualStyleBackColor = true;
+        buttonRefresh.Click += buttonRefresh_Click;
         // 
         // FormUser
         // 

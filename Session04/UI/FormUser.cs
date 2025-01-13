@@ -13,6 +13,7 @@ public partial class FormUser : Form
     private void FormUser_Load(object sender, EventArgs e)
     {
         groupBoxUser.DesignForm(typeof(User));
+        reload();
     }
 
     private void buttonSave_Click(object sender, EventArgs e)
@@ -21,5 +22,16 @@ public partial class FormUser : Form
         var service = new UserService();
         service.Create(user);
         MessageBox.Show("Success 🎉🎉");
+    }
+
+    private void buttonRefresh_Click(object sender, EventArgs e)
+    {
+        reload();
+    }
+
+    private void reload()
+    {
+        var service = new UserService();
+        dataGridViewUsers.DataSource = service.Read();
     }
 }

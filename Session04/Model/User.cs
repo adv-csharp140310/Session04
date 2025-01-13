@@ -6,7 +6,7 @@ public class User
 {
     public int ID { get; set; }
     [Display(Name = "نام")]
-    public string Name { get; set; }
+    public string FirstName { get; set; }
     public string Family { get; set; }
     public string Email { get; set; }
     public bool IsActive { get; set; }
