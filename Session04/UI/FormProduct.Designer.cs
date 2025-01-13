@@ -29,8 +29,8 @@ partial class FormProduct
     private void InitializeComponent()
     {
         groupBoxProduct = new GroupBox();
-        buttonSave = new Button();
         buttonRefresh = new Button();
+        buttonSave = new Button();
         dataGridViewProducts = new DataGridView();
         ColumnEdit = new DataGridViewButtonColumn();
         ColumnDelete = new DataGridViewButtonColumn();
@@ -49,15 +49,6 @@ partial class FormProduct
         groupBoxProduct.TabStop = false;
         groupBoxProduct.Text = "Product";
         // 
-        // buttonSave
-        // 
-        buttonSave.Location = new Point(695, 183);
-        buttonSave.Name = "buttonSave";
-        buttonSave.Size = new Size(75, 23);
-        buttonSave.TabIndex = 0;
-        buttonSave.Text = "Save";
-        buttonSave.UseVisualStyleBackColor = true;
-        // 
         // buttonRefresh
         // 
         buttonRefresh.Location = new Point(695, 212);
@@ -66,6 +57,17 @@ partial class FormProduct
         buttonRefresh.TabIndex = 1;
         buttonRefresh.Text = "Refresh";
         buttonRefresh.UseVisualStyleBackColor = true;
+        buttonRefresh.Click += buttonRefresh_Click;
+        // 
+        // buttonSave
+        // 
+        buttonSave.Location = new Point(695, 183);
+        buttonSave.Name = "buttonSave";
+        buttonSave.Size = new Size(75, 23);
+        buttonSave.TabIndex = 0;
+        buttonSave.Text = "Save";
+        buttonSave.UseVisualStyleBackColor = true;
+        buttonSave.Click += buttonSave_Click;
         // 
         // dataGridViewProducts
         // 
@@ -78,6 +80,7 @@ partial class FormProduct
         dataGridViewProducts.ReadOnly = true;
         dataGridViewProducts.Size = new Size(776, 245);
         dataGridViewProducts.TabIndex = 1;
+        dataGridViewProducts.CellContentClick += dataGridViewProducts_CellContentClick;
         // 
         // ColumnEdit
         // 
