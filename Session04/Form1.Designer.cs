@@ -30,6 +30,8 @@
         {
             buttonUsers = new Button();
             buttonProducts = new Button();
+            buttonLambda = new Button();
+            listBox1 = new ListBox();
             SuspendLayout();
             // 
             // buttonUsers
@@ -52,11 +54,32 @@
             buttonProducts.UseVisualStyleBackColor = true;
             buttonProducts.Click += buttonProducts_Click;
             // 
+            // buttonLambda
+            // 
+            buttonLambda.Location = new Point(230, 12);
+            buttonLambda.Name = "buttonLambda";
+            buttonLambda.Size = new Size(124, 23);
+            buttonLambda.TabIndex = 2;
+            buttonLambda.Text = "Lambda";
+            buttonLambda.UseVisualStyleBackColor = true;
+            buttonLambda.Click += buttonLambda_Click;
+            // 
+            // listBox1
+            // 
+            listBox1.FormattingEnabled = true;
+            listBox1.ItemHeight = 15;
+            listBox1.Location = new Point(381, 12);
+            listBox1.Name = "listBox1";
+            listBox1.Size = new Size(174, 349);
+            listBox1.TabIndex = 3;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(499, 315);
+            ClientSize = new Size(778, 384);
+            Controls.Add(listBox1);
+            Controls.Add(buttonLambda);
             Controls.Add(buttonProducts);
             Controls.Add(buttonUsers);
             Name = "Form1";
@@ -69,5 +92,7 @@
 
         private Button buttonUsers;
         private Button buttonProducts;
+        private Button buttonLambda;
+        private ListBox listBox1;
     }
 }
