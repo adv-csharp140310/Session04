@@ -14,7 +14,8 @@ using System.Windows.Forms;
 namespace Session04.UI;
 public partial class FormProduct : Form
 {
-    ProductService productService = new ProductService();
+    //ProductService productService = new ProductService();
+    ProductServiceDapper productService = new ProductServiceDapper();
     public FormProduct()
     {
         InitializeComponent();
@@ -58,9 +59,7 @@ public partial class FormProduct : Form
                 reload();
                 MessageBox.Show("Done");
             }
-        }
-
-        if (dataGridViewProducts.CurrentCell.OwningColumn.Name == "ColumnEdit")
+        }else  if (dataGridViewProducts.CurrentCell.OwningColumn.Name == "ColumnEdit")
         {
             groupBoxProduct.SetFormData(productService.GetById(id));
         }
