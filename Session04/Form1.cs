@@ -19,5 +19,11 @@ namespace Session04
             var frm = new FormUser();
             frm.ShowDialog();
         }
+
+        private void buttonProducts_Click(object sender, EventArgs e)
+        {
+            var frm = new FormProduct();
+            frm.ShowDialog();
+        }
     }
 }
