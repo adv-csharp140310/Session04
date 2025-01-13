@@ -9,7 +9,7 @@ namespace Session04
         //Function First Class 
         //var i = 42
 
-        private void Map(Func<int, bool> cond)
+        private void Filter(Func<int, bool> cond)
         {
             listBox1.Items.Clear();
             for (int i = 0; i < numbers.Count; i++)
@@ -47,9 +47,9 @@ namespace Session04
 
             var my = (int x) => x % 2 == 0;
             
-            Map(x => x % 2 == 0);
-            Map(x => x % 2 != 0);
-            Map(x => x <= 5 );
+            Filter(x => x % 2 == 0);
+            Filter(x => x % 2 != 0);
+            Filter(x => x <= 5 );
 
 
             //listBox1.Items.Clear();
