@@ -46,11 +46,13 @@ namespace Session04
             //});
 
             var my = (int x) => x % 2 == 0;
-            
+
+            //lazy
+
             Filter(x => x % 2 == 0);
             Filter(x => x % 2 != 0);
-            Filter(x => x <= 5 );
-
+            Filter(x => x <= 5);
+            //Where
 
             //listBox1.Items.Clear();
             //for (int i = 0; i < numbers.Count; i++)
@@ -71,8 +73,16 @@ namespace Session04
             //    }
             //}
 
+
+            
+
         }
 
+
+        public void xyz(int a, int b)
+        {
+
+        }
 
         public Form1()
         {
@@ -96,6 +106,41 @@ namespace Session04
             frm.ShowDialog();
         }
 
-        
+        private void buttonLinqEx1_Click(object sender, EventArgs e)
+        {
+            //Filter(x => x % 2 == 0);
+            //Filter(x => x % 2 != 0);
+
+
+            //LINQ
+            //Language Integrated Query
+            // Select, Where, OrderBy, GroupBy, Aggrigate ....
+            // Map, Filter, Sort, Group, Reduce ...
+            // Map/Reduce (Hadoop)
+
+            //Syntax
+            //  Query Syntax
+            //  Methd Syntax
+
+
+            //Enumerable
+            var evens = numbers.Where(x => x % 2 == 0);
+            var odd = numbers.Where(x => x % 2 != 0);
+            var lt5 = numbers.Where(x => x < 5);
+
+            //Select x * x as pow from sample where x % 2 <> 0
+            var oddPow2= numbers
+                .Where(x => x % 2 != 0)
+                .Select(x => x * x)
+                .Where(x => x > 10)                
+                ;
+
+
+            //Query Syntax
+                var evens2 = from n in numbers 
+                             where n % 2  == 0
+                             select n;
+
+        }
     }
 }
